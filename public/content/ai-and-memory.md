@@ -1,6 +1,6 @@
 # AI and Memory
 
-*May 10, 2025*
+*April 26, 2025*
 
 LLMs and reasoning will not in the foreseeable future achieve human-level productivity in knowledge work. This why the easiest pickings for end-user value lie in integrations.
 

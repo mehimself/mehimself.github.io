@@ -2,7 +2,7 @@
   <div class="home">
     <header class="profile-header">
       <h1>Max Roald Eckardt</h1>
-      <p class="subtitle">Senior Solution Architect with the genAI Tribe at <a href="https://danskebank.dk/erhverv/forside" target="_blank">Danske Bank Erhverv</a></p>
+      <p class="subtitle">Senior Solution Architect for agentic systems.</p>
       <p>See my <a href="https://www.linkedin.com/in/max-roald-eckardt-69706071/" target="_blank">CV on LinkedIn</a></p>
       <p class="intro">I use this page as a blog for commentary on topics close to my interests.</p>
       

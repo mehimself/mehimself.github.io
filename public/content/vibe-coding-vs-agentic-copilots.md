@@ -31,7 +31,7 @@ Whenever you're introducing new functionality or refactoring existing code, it's
 - Don't Repeat Yourself
 - You ain't gonna need it (YAGNI)
 
-Uncle Bob, a great source for such condensed experience [labeled this style **_"Polite Coding"_**](https://www.youtube.com/watch?v=l-gF0vDhJVI&t=3160s). It produces code that does not require implicit knowledge to make sense to casual readers. The requirement to annotate production code often indicates poor architecture or code quality. There are distinct exceptions to this if quality concerns post programming guides excluding basic language features (like NASA's C guidelines).
+Uncle Bob, a great source for such condensed experience [labeled this style **"Polite Coding"**](https://www.youtube.com/watch?v=l-gF0vDhJVI&t=3160s). It produces code that does not require implicit knowledge to make sense to casual readers. The requirement to annotate production code often indicates poor architecture or code quality. There are distinct exceptions to this if quality concerns post programming guides excluding basic language features (like NASA's C guidelines).
 
 ## Generation Guidelines
 
@@ -62,4 +62,4 @@ If you try getting-to-work one-shot LLM generated code in a thread and complain 
 
 ## Navigate Code in Three Dimensions
 
-Code can roughly be spread out in three dimensions. Named design patterns help you specify **_flow and concurrency_**, **_nesting and disjunctions_**, and **_events and exceptions_**. Once you prime reasoning with references to where which dedicated module is supposed to do what, even vague formulations yield great results. In the vast majority programmers all struggle with shared problems. The solutions are out there and have been learnt by LLMs. Being unoriginal, boring, and predictive have been the gold standard in programming since its inception, with LLMs taking over that part us developers can now work out of the box.
+Code can roughly be spread out in three dimensions. Named design patterns help you specify _flow and concurrency_, _nesting and disjunctions_, and _events and exceptions_. Once you prime reasoning with references to where which dedicated module is supposed to do what, even vague formulations yield great results. In the vast majority programmers all struggle with shared problems. The solutions are out there and have been learnt by LLMs. Being unoriginal, boring, and predictive have been the gold standard in programming since its inception, with LLMs taking over that part us developers can now work out of the box.
