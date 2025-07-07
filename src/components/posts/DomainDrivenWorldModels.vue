@@ -17,7 +17,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await fetch('/src/content/domain-driven-world-models.md')
+      const response = await fetch('/content/domain-driven-world-models.md')
       this.markdownContent = await response.text()
     } catch (error) {
       console.error('Error loading markdown content:', error)

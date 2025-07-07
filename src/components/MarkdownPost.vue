@@ -62,25 +62,15 @@ export default {
       this.error = null
       
       try {
-        // Try to import the markdown file directly
-        const response = await fetch(`/src/content/${this.markdownFile}`)
+        // Load from public folder (production-ready)
+        const response = await fetch(`/content/${this.markdownFile}`)
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
         this.loadedContent = await response.text()
       } catch (err) {
         console.error('Error loading markdown file:', err)
-        // Fallback: try to load from public folder
-        try {
-          const response = await fetch(`/content/${this.markdownFile}`)
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`)
-          }
-          this.loadedContent = await response.text()
-        } catch (fallbackErr) {
-          console.error('Fallback loading also failed:', fallbackErr)
-          this.error = `Could not load ${this.markdownFile}`
-        }
+        this.error = `Could not load ${this.markdownFile}`
       } finally {
         this.loading = false
       }

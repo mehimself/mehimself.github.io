@@ -17,7 +17,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await fetch('/src/content/ai-and-memory.md')
+      const response = await fetch('/content/ai-and-memory.md')
       this.markdownContent = await response.text()
     } catch (error) {
       console.error('Error loading markdown content:', error)
