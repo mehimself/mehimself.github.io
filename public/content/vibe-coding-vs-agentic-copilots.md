@@ -71,17 +71,16 @@ Code can roughly be spread out in three dimensions. Named design patterns help y
 For example to resolve API backend request flow you can offer the following nomenclature for traversed layers and scopes:
 
 - pre-router middleware 
-- api router
-- inter-router-middleware
+- API router
+- API middleware
 - service router
-- pre-controller-middleware
+- endpoint middleware
 - action endpoint
 - endpoint handler
-- service controller
-- action controller
-- data factory
-- post-controller-middleware
-- post-router-middleware
+- service action controller
+- data controller
+- post-controller middleware
+- post-router middleware
 
 When the agent is tasked to work on a specific action, you may specify a layer, or scope type, to limit refactorings and generation.
 
