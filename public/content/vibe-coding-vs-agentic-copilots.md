@@ -39,11 +39,13 @@ The point of above paradigms is to remove implicit knowledge form any given scop
 
 ## Limits of Automation
 
-When it comes to sustaining high-quality code, a test-driven and piloted approach is critical. No matter how sophisticated generative tools become, software quality is not fully automatable with LLMs. It takes only a single hallucination, or temporary omission to introduce fundamental flaws. Continuous integration, test-driven development, and diligent pilot-testing of newly generated features are essential to catch these potential failures before they reach production. Requirements can change at any time, and a human-in-the-loop process ensures ongoing alignment between evolving user needs and the codebase. My best bet is to implement rigorous test-driven-development (TDD) with an agentic copilot TDD naturally enforces above paradigms and being with generative support could leave the quality control and creative freedom to the human pilot. Human piloting is essential.
+When it comes to sustaining high-quality code, a test-driven and piloted approach is critical. No matter how sophisticated generative tools become, software quality is not fully automatable with LLMs. It takes only a single hallucination, or a lapse of agent attention to introduce fundamental regressions. Continuous integration, test-driven development, and diligent (human) pilot-testing of newly generated features are essential to catch such disconnects before they shift project focus or misappropriate use cases. 
 
-## Workflow
+Requirements can change at any time, and a human-in-the-loop process ensures ongoing alignment between evolving user needs and the shotgun-approach to agentic refactorings in your codebase. Human piloting is essential.
 
-So, how do we use these reasoning models for high-quality, scalable development? For best cognitive support we need to globally minimize complexity. Break the work into tasks, and resolve each task into refactoring strategies. These strategies involve nine parts navigation and delimitation, and one part code replacement. When targeting a change in behavior:
+## Piloting the copilot
+
+So, how do we pilot these reasoning models for high-quality, scalable development? For best cognitive support we need to globally minimize complexity. Break the work into tasks, and resolve each task into refactoring strategies. These strategies involve nine parts navigation and delimitation, and one part code replacement. When targeting a change in behavior:
 
 - isolate the relevant symbols
 - trace their referencing contexts throughout the stack
