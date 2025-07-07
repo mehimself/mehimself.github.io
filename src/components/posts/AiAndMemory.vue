@@ -1,5 +1,5 @@
 <template>
-  <MarkdownPost :content="markdownContent" />
+  <MarkdownPost markdown-file="ai-and-memory.md" />
 </template>
 
 <script>
@@ -9,31 +9,9 @@ export default {
   name: 'AiAndMemory',
   components: {
     MarkdownPost
-  },
-  data() {
-    return {
-      markdownContent: ''
-    }
-  },
-  async mounted() {
-    try {
-      const response = await fetch('/content/ai-and-memory.md')
-      this.markdownContent = await response.text()
-    } catch (error) {
-      console.error('Error loading markdown content:', error)
-      this.markdownContent = `# AI and Memory
-
-*January 10, 2025*
-
-Error loading content. Please check the markdown file.`
-    }
   }
 }
 </script>
-
-<style scoped>
-.blog-post {
-  max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

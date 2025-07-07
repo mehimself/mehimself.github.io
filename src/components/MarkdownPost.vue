@@ -52,26 +52,51 @@ export default {
   },
   computed: {
     displayContent() {
-      return this.content || this.loadedContent || this.initialContent || ''
+      // Debug logging
+      console.log('MarkdownPost displayContent computed:', {
+        contentProp: this.content?.substring(0, 50) + '...',
+        loadedContent: this.loadedContent?.substring(0, 50) + '...',
+        initialContent: this.initialContent?.substring(0, 50) + '...'
+      })
+      
+      // Prioritize content prop, then loaded content, then initial content
+      if (this.content) {
+        return this.content
+      }
+      if (this.loadedContent) {
+        return this.loadedContent
+      }
+      if (this.initialContent) {
+        return this.initialContent
+      }
+      return ''
     }
   },
   async mounted() {
+    console.log('MarkdownPost mounted:', {
+      markdownFile: this.markdownFile,
+      initialContent: !!this.initialContent,
+      content: !!this.content
+    })
     if (this.markdownFile && !this.initialContent && !this.content) {
       await this.loadMarkdownFile()
     }
   },
   methods: {
     async loadMarkdownFile() {
+      console.log('MarkdownPost: Loading markdown file:', this.markdownFile)
       this.loading = true
       this.error = null
       
       try {
         // Load from public folder (production-ready)
         const response = await fetch(`/content/${this.markdownFile}`)
+        console.log('MarkdownPost: Response status:', response.status)
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
         this.loadedContent = await response.text()
+        console.log('MarkdownPost: Content loaded:', this.loadedContent.substring(0, 100) + '...')
       } catch (err) {
         console.error('Error loading markdown file:', err)
         this.error = `Could not load ${this.markdownFile}`
