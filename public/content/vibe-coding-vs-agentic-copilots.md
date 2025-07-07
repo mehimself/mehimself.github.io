@@ -54,12 +54,36 @@ So, how do we use these reasoning models for high-quality, scalable development?
 - summarize the changes in the thread
 - _Commit_, _revisit_, or _revert_ changes based on user response
 
+This is largely how Cline, and Github Copilot interface with your project and IDE. 
+
 ## Capitalizing on Experience
 
 LLM reasoning, which we rely on to generate code, works by finding patterns to use in its generations. Its 'search stamina' is very limited and needs to be contextualized by your prompt to yield worthwhile output. The better you are at projecting which stereotypical design patterns used by developers qualify for your task the better results you will get. System designers, software architects, and programmers, who are trained to communicate prospective state machines, maintain a rich corpus of named design patterns and strategies for this exact purpose. Named patterns prime LLMs to select referenced patterns allowing efficient control over flow, architecture, modality, and functionality. This is how experienced programmers gain more value with LLMs than beginners.
 
 If you try getting-to-work one-shot LLM generated code in a thread and complain about the ~1000 lines (moving goalpost) limitation with code generation tools, you are doing it wrong. Use design patterns to lay out how your code resolves into layers and modules before solving each module across all layers separately, incrementally.
 
-## Navigate Code in Three Dimensions
+## Agent Attention Management across Three Dimensions in Source Code
 
-Code can roughly be spread out in three dimensions. Named design patterns help you specify _flow and concurrency_, _nesting and disjunctions_, and _events and exceptions_. Once you prime reasoning with references to where which dedicated module is supposed to do what, even vague formulations yield great results. In the vast majority programmers all struggle with shared problems. The solutions are out there and have been learnt by LLMs. Being unoriginal, boring, and predictive have been the gold standard in programming since its inception, with LLMs taking over that part us developers can now work out of the box.
+Agent attention ais fickle. Their working memory and attention are quickly outscaled by your project code base. Claude.md files and equivalent go a long way to stabilize agent contributions, but I found one method improves my working experience more than other popular proposals.   
+
+Code can roughly be spread out in three dimensions. Named design patterns help you specify _flow and concurrency_, _nesting and disjunctions_, and _events and exceptions_. All three dimensions can be resolved further with conventional and use-case-specific taxonomies. LLM-bourne agentic tooling for software development develop a lot of stamina when you introduce a _lingua franca_ that lets you locate, navigate, and delimitate essential portions of your code base.  
+
+For example to resolve API backend request flow you can offer the following nomenclature for traversed layers and scopes:
+
+- pre-router middleware 
+- api router
+- inter-router-middleware
+- service router
+- pre-controller-middleware
+- action endpoint
+- endpoint handler
+- service controller
+- action controller
+- data factory
+- post-controller-middleware
+- post-router-middleware
+
+When the agent is tasked to work on a specific action, you may specify a layer, or scope type, to limit refactorings and generation.
+
+Once you prime reasoning with references to where which dedicated module is supposed to do what, coordination with an agent becomes easier. In the past programmers each struggled with shared problems. Learning was slow and personal. Being unoriginal, boring, and predictive has been the gold standard for programming since its inception, These solutions have now been learnt by our LLMs. As programmers we can now settle into more strategic and productive mind frames.
+
