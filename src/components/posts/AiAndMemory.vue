@@ -12,6 +12,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.blog-post {
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -146,4 +150,5 @@ a:hover {
     text-align: left;
   }
 }
+</style>
 </style>
