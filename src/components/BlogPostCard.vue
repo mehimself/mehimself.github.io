@@ -13,7 +13,9 @@
     </header>
     
     <div v-if="isExpanded" class="post-content">
-      <component :is="post.component" />
+      <div class="post-content-wrapper">
+        <component :is="post.component" />
+      </div>
     </div>
   </article>
 </template>
@@ -149,6 +151,35 @@ export default {
   padding: 0 24px 24px 24px;
   border-top: 1px solid #e1e8ed;
   animation: fadeIn 0.3s ease;
+}
+
+/* Hide the duplicate title and date from the markdown content */
+/* The MarkdownPost component renders h1 and italic date */
+.post-content-wrapper :deep(.markdown-content h1) {
+  display: none;
+}
+
+.post-content-wrapper :deep(.markdown-content h1 + p em:only-child) {
+  display: none;
+}
+
+.post-content-wrapper :deep(.markdown-post) {
+  padding: 0;
+  margin: 0;
+  max-width: none;
+}
+
+.post-content-wrapper :deep(.markdown-content) {
+  padding-top: 20px;
+}
+
+.post-content-wrapper :deep(.markdown-content h2:first-of-type) {
+  margin-top: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
