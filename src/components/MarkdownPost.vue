@@ -4,7 +4,7 @@
     <div v-else-if="error" class="error">Error loading post: {{ error }}</div>
     <Markdown 
       v-else
-      :source="content" 
+      :source="displayContent" 
       :options="markdownOptions"
       class="markdown-content"
     />
@@ -20,6 +20,10 @@ export default {
     Markdown
   },
   props: {
+    content: {
+      type: String,
+      default: ''
+    },
     initialContent: {
       type: String,
       default: ''
@@ -47,12 +51,12 @@ export default {
     }
   },
   computed: {
-    content() {
-      return this.loadedContent || this.initialContent || ''
+    displayContent() {
+      return this.content || this.loadedContent || this.initialContent || ''
     }
   },
   async mounted() {
-    if (this.markdownFile && !this.initialContent) {
+    if (this.markdownFile && !this.initialContent && !this.content) {
       await this.loadMarkdownFile()
     }
   },
@@ -78,7 +82,7 @@ export default {
   },
   watch: {
     markdownFile() {
-      if (this.markdownFile && !this.initialContent) {
+      if (this.markdownFile && !this.initialContent && !this.content) {
         this.loadMarkdownFile()
       }
     }
