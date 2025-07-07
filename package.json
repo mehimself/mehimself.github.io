@@ -1,0 +1,38 @@
+{
+  "name": "mehimself.github.io",
+  "version": "1.0.0",
+  "description": "Max Roald Eckardt's personal profile and blog - Vue.js SPA",
+  "author": "Max Roald Eckardt",
+  "license": "MIT",
+  "homepage": "https://mehimself.github.io",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "deploy": "gh-pages -d dist",
+    "lint": "vue-cli-service lint",
+    "lint:fix": "vue-cli-service lint --fix",
+    "preview": "npm run build && npm run serve:dist",
+    "serve:dist": "npx serve -s dist -l 3000",
+    "test": "npm run test:unit",
+    "test:unit": "jest"
+  },
+  "dependencies": {
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0",
+    "vue3-markdown-it": "^1.0.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^4.5.0",
+    "@vue/cli-service": "^4.5.0",
+    "@vue/test-utils": "^2.0.0",
+    "@vue/vue3-jest": "^27.0.0",
+    "babel-jest": "^27.0.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "gh-pages": "^6.3.0",
+    "jest": "^27.0.0"
+  }
+}
