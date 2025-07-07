@@ -157,8 +157,8 @@ export default {
   line-height: 1.7;
 }
 
-.markdown-content :deep(p em:first-child) {
-  /* Style for date lines */
+.markdown-content :deep(h1 + p em:only-child) {
+  /* Style for date lines - only when em is the only child of the first paragraph after h1 */
   display: block;
   text-align: center;
   color: #7f8c8d;
