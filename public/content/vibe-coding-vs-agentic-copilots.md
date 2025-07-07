@@ -1,6 +1,6 @@
 # Vibe Coding vs. Agentic Code Copilots
 
-*January 5, 2025*
+*March 5, 2025*
 
 Vibe coding uses LLMs or reasoning models (LRMs) for code generation. With democratized access to these tools, we can create functional applications in minutes, or maybe within a few hours of chatting. So, what prevents vibe coding from scaling into production?
 

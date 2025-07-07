@@ -1,6 +1,6 @@
 # Domain-Driven World Models
 
-*January 15, 2025*
+*April 26, 2025*
 
 At NVIDIA GTC 2025 Yann LeCun exclaimed that he was "not so interested in LLMs anymore." He goes on appraising world model simulation-based AI models. What are the implications for software developers today?
 
