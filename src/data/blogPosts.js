@@ -1,3 +1,4 @@
+import SymbolicThinking from '../components/posts/SymbolicThinking.vue'
 import DomainDrivenWorldModels from '../components/posts/DomainDrivenWorldModels.vue'
 import AiAndMemory from '../components/posts/AiAndMemory.vue'
 import VibeCodingVsAgenticCopilots from '../components/posts/VibeCodingVsAgenticCopilots.vue'

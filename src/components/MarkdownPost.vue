@@ -13,6 +13,7 @@
 
 <script>
 import Markdown from 'vue3-markdown-it'
+import mermaid from 'mermaid'
 
 export default {
   name: 'MarkdownPost',
@@ -78,9 +79,29 @@ export default {
       initialContent: !!this.initialContent,
       content: !!this.content
     })
+    
+    // Initialize Mermaid
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'default',
+      themeVariables: {
+        primaryColor: '#3498db',
+        primaryTextColor: '#2c3e50',
+        primaryBorderColor: '#34495e',
+        lineColor: '#34495e',
+        secondaryColor: '#ecf0f1',
+        tertiaryColor: '#f8f9fa'
+      }
+    })
+    
     if (this.markdownFile && !this.initialContent && !this.content) {
       await this.loadMarkdownFile()
     }
+    
+    // Render Mermaid diagrams after component is mounted
+    this.$nextTick(() => {
+      this.renderMermaidDiagrams()
+    })
   },
   methods: {
     async loadMarkdownFile() {
@@ -97,11 +118,64 @@ export default {
         }
         this.loadedContent = await response.text()
         console.log('MarkdownPost: Content loaded:', this.loadedContent.substring(0, 100) + '...')
+        
+        // Render Mermaid diagrams after content is loaded
+        this.$nextTick(() => {
+          this.renderMermaidDiagrams()
+        })
       } catch (err) {
         console.error('Error loading markdown file:', err)
         this.error = `Could not load ${this.markdownFile}`
       } finally {
         this.loading = false
+      }
+    },
+    
+    async renderMermaidDiagrams() {
+      try {
+        // Find all code blocks with mermaid language
+        const codeBlocks = this.$el.querySelectorAll('pre code')
+        
+        for (let i = 0; i < codeBlocks.length; i++) {
+          const codeBlock = codeBlocks[i]
+          const preElement = codeBlock.parentElement
+          
+          // Check if this is a mermaid code block
+          if (codeBlock.textContent.trim().startsWith('graph') || 
+              codeBlock.textContent.trim().startsWith('sequenceDiagram') ||
+              codeBlock.textContent.trim().startsWith('classDiagram') ||
+              codeBlock.textContent.trim().startsWith('gantt') ||
+              codeBlock.textContent.trim().startsWith('flowchart') ||
+              codeBlock.textContent.trim().startsWith('pie') ||
+              codeBlock.textContent.trim().startsWith('gitGraph') ||
+              codeBlock.textContent.trim().startsWith('journey')) {
+            
+            if (preElement.getAttribute('data-processed') !== 'true') {
+              try {
+                const mermaidCode = codeBlock.textContent.trim()
+                const tempDiv = document.createElement('div')
+                tempDiv.innerHTML = mermaidCode
+                
+                // Use mermaid.render with v10 API
+                const { svg } = await mermaid.render(`mermaid-${Date.now()}-${i}`, mermaidCode)
+                
+                // Replace the pre element with the SVG
+                const mermaidDiv = document.createElement('div')
+                mermaidDiv.className = 'mermaid-diagram'
+                mermaidDiv.innerHTML = svg
+                
+                preElement.parentNode.replaceChild(mermaidDiv, preElement)
+                mermaidDiv.setAttribute('data-processed', 'true')
+                
+              } catch (error) {
+                console.error('Mermaid rendering error:', error)
+                preElement.innerHTML = `<code style="color: #e74c3c; background: #fff5f5; padding: 10px; border-radius: 4px; display: block;">Mermaid diagram error: ${error.message}</code>`
+              }
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Error rendering Mermaid diagrams:', error)
       }
     }
   },
@@ -110,6 +184,12 @@ export default {
       if (this.markdownFile && !this.initialContent && !this.content) {
         this.loadMarkdownFile()
       }
+    },
+    displayContent() {
+      // Re-render Mermaid diagrams when content changes
+      this.$nextTick(() => {
+        this.renderMermaidDiagrams()
+      })
     }
   }
 }
@@ -246,6 +326,21 @@ export default {
   color: #e74c3c;
   font-weight: 700;
   font-style: italic;
+}
+
+/* Mermaid diagram styling */
+.markdown-content :deep(.mermaid-diagram) {
+  text-align: center;
+  margin: 20px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e1e8ed;
+}
+
+.markdown-content :deep(.mermaid-diagram svg) {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Loading and error states */

@@ -5,7 +5,8 @@
     </nav>
     
     <main class="post-container">
-      <component v-if="post" :is="post.component" />
+      <component v-if="post && post.component" :is="post.component" />
+      <MarkdownPost v-else-if="post && post.markdownFile" :markdown-file="post.markdownFile" />
       <div v-else class="post-not-found">
         <h1>Post Not Found</h1>
         <p>The blog post you're looking for doesn't exist.</p>
@@ -17,9 +18,13 @@
 
 <script>
 import { blogPosts } from '../data/blogPosts.js'
+import MarkdownPost from '../components/MarkdownPost.vue'
 
 export default {
   name: 'BlogPost',
+  components: {
+    MarkdownPost
+  },
   props: {
     slug: {
       type: String,
