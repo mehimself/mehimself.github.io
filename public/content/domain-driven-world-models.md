@@ -12,6 +12,26 @@ Even "_Reasoning models_" are essentially improvised architectures, cobbling tog
 
 One suitable solution for abstract thinking is _symbolic reasoning_ with a _world model_. A _world model_ maintains connections between knowledge and its abstractions (**reasoning symbols**), potentially aligned with **reasoning traces** forming deduced and induced relationships:
 
+```mermaid
+graph TD
+    A[apple] --> B[physical object]
+    B --> C[physical laws]
+    C --> D[gravity]
+    D --> E[applies to apples]
+    
+    A -.-> F[concrete instance]
+    B -.-> G[category]
+    C -.-> H[governing rules]
+    D -.-> I[specific force]
+    E -.-> J[derived conclusion]
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#fff3e0
+    style D fill:#e8f5e8
+    style E fill:#fff8e1
+```
+
 - an **(apple)** is a **(physical object)** are governed by **(physical laws)** featuring **(gravity)**
 - thus **(gravity)** applies to **{apples}**
 
