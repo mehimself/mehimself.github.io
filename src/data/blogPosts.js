@@ -7,7 +7,7 @@ export const blogPosts = [
   {
     id: 'symbolic-thinking',
     title: 'Symbolic Thinking',
-    date: '2025-07-07',
+    date: '2025-07-06',
     excerpt: 'LLMs are not efficient at capturing facts in a retrievable fashion. Working memory should not be black boxed since the provenance of details used for reasoning and tasks need to remain traceable for synergistic human-centered collaboration.',
     component: SymbolicThinking,
     path: '/blog/symbolic-thinking'
@@ -15,7 +15,7 @@ export const blogPosts = [
   {
     id: 'domain-driven-world-models',
     title: 'Domain-Driven World Models',
-    date: '2025-01-15',
+    date: '2025-21-07',
     excerpt: 'At NVIDIA GTC 2025 Yann LeCun exclaimed that he was "not so interested in LLMs anymore." He goes on appraising world model simulation-based AI models. What are the implications for software developers today?',
     component: DomainDrivenWorldModels,
     path: '/blog/domain-driven-world-models'
@@ -23,7 +23,7 @@ export const blogPosts = [
   {
     id: 'ai-and-memory',
     title: 'AI and Memory',
-    date: '2025-01-10',
+    date: '2025-01-04',
     excerpt: 'LLMs and reasoning will not in the foreseeable future achieve human-level productivity in knowledge work. This why the easiest pickings for end-user value lie in integrations.',
     component: AiAndMemory,
     path: '/blog/ai-and-memory'
