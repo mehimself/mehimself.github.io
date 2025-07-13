@@ -1,6 +1,6 @@
 # Symbolic Reasoning
 
-*June 21, 2025*
+*July 21, 2025*
 
 When LLMs reason, they do so as disembodied mechanic minds with a fractured representation of our complex world. Large chunks of their internalized knowledge match reasonably well with our reality, while gaps in knowledge are filled with assumptions and rationalizations. This fundamental limitation affects the reliability and scalability of AI reasoning systems.
 
