@@ -5,14 +5,6 @@ import VibeCodingVsAgenticCopilots from '../components/posts/VibeCodingVsAgentic
 
 export const blogPosts = [
   {
-    id: 'mermaid-test',
-    title: 'Mermaid Diagram Test',
-    date: '2024-12-15',
-    excerpt: 'A test post demonstrating Mermaid diagram support with various diagram types including flowcharts, sequence diagrams, class diagrams, and Gantt charts.',
-    markdownFile: 'mermaid-test.md',
-    path: '/blog/mermaid-test'
-  },
-  {
     id: 'symbolic-thinking',
     title: 'Symbolic Thinking',
     date: '2025-07-07',
