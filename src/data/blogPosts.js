@@ -5,6 +5,22 @@ import VibeCodingVsAgenticCopilots from '../components/posts/VibeCodingVsAgentic
 
 export const blogPosts = [
   {
+    id: 'mermaid-test',
+    title: 'Mermaid Diagram Test',
+    date: '2024-12-15',
+    excerpt: 'A test post demonstrating Mermaid diagram support with various diagram types including flowcharts, sequence diagrams, class diagrams, and Gantt charts.',
+    markdownFile: 'mermaid-test.md',
+    path: '/blog/mermaid-test'
+  },
+  {
+    id: 'symbolic-thinking',
+    title: 'Symbolic Thinking',
+    date: '2025-07-07',
+    excerpt: 'LLMs are not efficient at capturing facts in a retrievable fashion. Working memory should not be black boxed since the provenance of details used for reasoning and tasks need to remain traceable for synergistic human-centered collaboration.',
+    component: SymbolicThinking,
+    path: '/blog/symbolic-thinking'
+  },
+  {
     id: 'domain-driven-world-models',
     title: 'Domain-Driven World Models',
     date: '2025-01-15',
