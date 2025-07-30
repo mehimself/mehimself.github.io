@@ -14,11 +14,19 @@ This fragmentation creates a cascade of problems that becomes particularly evide
 
 When a model reasons it traces pathways from a problem to candidate solutions. These traces rely on its understanding of our world. Our laws, conventions, practices and exceptions and the messy multitude of divergent perspectives comprise its model of our world. The better a model's *formal grounding* (micro- and macro alignment with our world), the more accurate and complete its representation of our world is, the more efficient model reasoning will be.
 
-Any discrepancy will cause errors that compound as reasoning progresses. This causes debilitating defects whenever a misaligned detail is considered in the latent space of a model's reasoning. To understand this better, let's examine how reasoning actually works.    
+Any discrepancy will cause errors that compound as reasoning progresses. This causes debilitating defects whenever a misaligned detail is considered in the latent space of a model's reasoning. To understand this better, let's examine how reasoning is implemented.    
 
 ## Reasoning Paths
 
-While there are many different patterns in which reasoning progresses, we can use one basic pattern to illustrate the underlying mechanism. Reasoning often poses problems based on the pattern `what is A to B as X is to Y`. This pattern enters the world model at a specific triplet `(X)-[effect]->(Y)` and seeks to find which unknown `A` affords the same `effect` on `B`. What `X` and `A` have in common is an abstraction in the form of a transient commonality. If `A` and `effect` exist we will find short associative paths between `X` and `A`. Efficient reasoning will then search paths breadth-first from `B` until `effect` is found.
+While there are many different patterns in which reasoning progresses, we can use one basic pattern to illustrate the underlying mechanism. Reasoning often poses problems based on the pattern `what is A to B as X is to Y`. This pattern enters the world model at a specific triplet 
+```mermaid 
+graph LR
+ X -->|effect| Y
+``` 
+
+
+and seeks to find which unknown `A` affords the same `effect` on `B`. What `X` and `A` have in common is an abstraction in the form of a transient commonality. If `A` and `effect` exist we will find short associative paths between `X` and `A`. Efficient reasoning will then search paths breadth-first from `B` until `effect` is found.
+
 
 Any discrepancy between our world and a world model along this reasoning path will cripple reasoning (by producing false positives and false negatives). As mentioned above, LLMs tend to compensate by completing a response with hallucinated claims projecting unviable or even non-existing reasoning paths.
 
